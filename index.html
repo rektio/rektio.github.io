@@ -1196,10 +1196,17 @@
                     var choice = $(this).html();
                     $("#dialog").html(rektio[choice]).dialog({
                         draggable: false,
-                        width: Math.min(600, vpwidth * .8),
-                        modal: true
+                        width: 0.8 * vpwidth,
+                        modal: true,
+                        create: function( event, ui ) {
+                                // Set maxWidth from https://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
+                                $(this).css("maxWidth", "660px");
+                              }
                     });
-
+                    
+                    $('.ui-widget-overlay').click(function() {
+                       $('#dialog').dialog('close');
+                    });
 
                     
 
@@ -1207,9 +1214,7 @@
                 $("ul").append(wordli);
 
             }
-            $('.ui-widget-overlay').click(function() {
-                   $('#dialog').dialog('close');
-            });
+
             // Simple list filter from:
             //https://kilianvalkhof.com/2010/javascript/how-to-build-a-fast-simple-list-filter-with-jquery/
 
