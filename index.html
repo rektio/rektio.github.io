@@ -1196,12 +1196,8 @@
                     var choice = $(this).html();
                     $("#dialog").html(rektio[choice]).dialog({
                         draggable: false,
-                        width: 0.8 * vpwidth,
-                        modal: true,
-                        create: function( event, ui ) {
-                                // Set maxWidth from https://stackoverflow.com/questions/16471890/responsive-jquery-ui-dialog-and-a-fix-for-maxwidth-bug
-                                $(this).css("maxWidth", "360px");
-                              }
+                        width: Math.Min(0.8 * vpwidth, 360),
+                        modal: true
                     });
                     
                     $('.ui-widget-overlay').click(function() {
