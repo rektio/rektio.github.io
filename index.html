@@ -1196,7 +1196,7 @@
                     var choice = $(this).html();
                     $("#dialog").html(rektio[choice]).dialog({
                         draggable: false,
-                        width: 0.8vw,
+                        width: Math.min(600, vpwidth * .8),
                         modal: true
                     });
 
